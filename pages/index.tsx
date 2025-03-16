@@ -12,14 +12,21 @@ const Home: NextPage = () => {
   const paragraphText =
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, alias. Amet ea neque autem mollitia facere inventore rerum deserunt, laborum enim esse vel beatae vitae, iusto eaque sit a sunt.";
 
+  const renderParagraphs = () => {
+    // Render the paragraph 20 times
+    return Array.from({ length: 20 }, (_, index) => (
+      <p key={index}>{paragraphText}</p>
+    ));
+  };
+
   return (
     <Layout pageTitle="Home Page">
-      <Image src="/heloo.jpg" width={200} height={200} alt="Helo" />
-      <p className={styles["title-homepage"]}>Heloo</p>
-      {[...Array(20)].map((_, index) => (
-        <p key={index}>{paragraphText}</p>
-      ))}
-      <Image src="/b.jpg" width={200} height={200} alt="blockchain" />
+      <div className={styles["home-content"]}>
+        <Image src="/heloo.jpg" width={200} height={200} alt="Helo" />
+        <p className={styles["title-homepage"]}>Heloo</p>
+        {renderParagraphs()}
+        <Image src="/b.jpg" width={200} height={200} alt="Blockchain" />
+      </div>
     </Layout>
   );
 };
