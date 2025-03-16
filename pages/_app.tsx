@@ -2,10 +2,15 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 
 /**
- * Home Page of the Application
- * @return {JSX.Element}
+ * Custom App Component
+ * 
+ * This is the top-level component that wraps all pages in the application.
+ * Here you can add global layouts, state management providers, or context providers.
+ * 
+ * @param {AppProps} props - The properties passed from Next.js, including the Component (the active page) and pageProps.
+ * @returns {JSX.Element} The rendered page component.
  */
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return <Component {...pageProps} />;
 }
 
