@@ -10,12 +10,13 @@ interface UsersProps {
 export default function Users(props: UsersProps) {
   const { dataUsers } = props;
   const router = useRouter();
+  
   return (
     <Layout pageTitle="Users Page">
       {dataUsers.map((user) => (
         <div
           key={user.id}
-          onClick={() => router.push(`/users/${user.id}`)}
+          onClick={() => router.push(`/users/${user.id}`)} // Navigates to user details
           className={styles.card}
         >
           <p>{user.name}</p>
@@ -29,6 +30,7 @@ export default function Users(props: UsersProps) {
 export async function getStaticProps() {
   const res = await fetch("https://jsonplaceholder.typicode.com/users");
   const dataUsers = await res.json();
+  
   return {
     props: {
       dataUsers,
