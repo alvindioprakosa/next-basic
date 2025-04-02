@@ -22,9 +22,16 @@ const Home: NextPage = () => {
   return (
     <Layout pageTitle="Home Page">
       <div className={styles["home-content"]}>
+        {/* Main image */}
         <Image src="/heloo.jpg" width={200} height={200} alt="Helo" />
+        
+        {/* Title */}
         <p className={styles["title-homepage"]}>Heloo</p>
+
+        {/* Rendered paragraphs */}
         {renderParagraphs()}
+
+        {/* Another image */}
         <Image src="/b.jpg" width={200} height={200} alt="Blockchain" />
       </div>
     </Layout>
