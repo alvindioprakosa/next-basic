@@ -1,6 +1,5 @@
 import React from "react";
 import Layout from "../components/Layout";
-import styles from "../styles/Blog.module.css";
 
 interface Post {
   id: number;
@@ -24,11 +23,13 @@ export default function Blog({ dataBlog, error }: BlogProps) {
 
   return (
     <Layout pageTitle="Blog Page">
+      <h1>Blog Posts</h1>
       {dataBlog.length > 0 ? (
         dataBlog.map((blog) => (
-          <div key={blog.id} className={styles.card}>
+          <div key={blog.id}>
             <h3>{blog.title}</h3>
             <p>{blog.body}</p>
+            <hr />
           </div>
         ))
       ) : (
@@ -41,8 +42,7 @@ export default function Blog({ dataBlog, error }: BlogProps) {
 export async function getServerSideProps() {
   try {
     const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-    
-    // Check if the response is successful
+
     if (!res.ok) {
       throw new Error("Failed to fetch blog posts");
     }
