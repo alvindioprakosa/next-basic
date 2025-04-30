@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./Footer.module.css";
 
-export default function index() {
+export default function Footer() {
   return (
-    <div>
+    <footer className={styles.footer}>
       <p className={styles.title}>info@ninedragonlabs</p>
-    </div>
+    </footer>
   );
 }
