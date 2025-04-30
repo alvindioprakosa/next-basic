@@ -1,5 +1,6 @@
 import Head from "next/head";
-import React, { ReactNode } from "react";
+import React from "react";
+import { ReactNode } from "react";
 import Footer from "../Footer";
 import Header from "../Header";
 import styles from "./Layout.module.css";
@@ -8,8 +9,8 @@ interface LayoutProps {
   children: ReactNode;
   pageTitle: string;
 }
-
-export default function Layout({ children, pageTitle }: LayoutProps) {
+export default function index(props: LayoutProps) {
+  const { children, pageTitle } = props;
   return (
     <>
       <Head>
@@ -18,7 +19,7 @@ export default function Layout({ children, pageTitle }: LayoutProps) {
       </Head>
       <div className={styles.container}>
         <Header />
-        <main className={styles.content}>{children}</main>
+        <div className={styles.content}>{children}</div>
         <Footer />
       </div>
     </>
